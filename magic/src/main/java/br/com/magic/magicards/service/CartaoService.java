@@ -22,8 +22,6 @@ public class CartaoService {
 	private CartaRepositorio repositorioCarta;
 
 	private UserRepositorio repositorioUser;
-
-	private CartaoService cartaoService;
 	
 	@PersistenceContext
 	private EntityManager entity; 
@@ -80,9 +78,9 @@ public class CartaoService {
 		this.repositorioCarta.insert(cartao, this.entity);
 	}
 	
-	//public void update(Carta carta) {
-	//	this.repositorioCarta.update(carta, entity);
-	//}
+	public void update(Carta carta) {
+		this.repositorioCarta.update(carta, entity);
+	}
 	public void delete(String username) {
 		this.repositorioCarta.delete(username, this.entity);
 	}
@@ -96,47 +94,6 @@ public class CartaoService {
 	}
 }
 
-	//public void update(Usuario usuario) {
-		//vai ver se tem alguem cadastrado na parte dos usuarios, pelo id(username)
-	//	Optional<Usuario> objUsuario = this.repositorioUser.findById(usuario.getUsername());
-		//if(objUsuario.isEmpty()) {
-		//	System.out.println("Colaborador ja cadastrado");
-		//}
-		
-		//if(!objUsuario.get().getUsername().equals(usuario.getUsername())) {
-			//this.repositorioUser.update(usuario.getUsername(), usuario.getPassword());
-		//}
-		//for(Carta carta : usuario.getCartas()) {
-		//	carta.setUsuario(usuario);
-		//	this.cartaoService.insert(carta);
-	//	}
-
-	//}
-//	public void delete(String username) {
-		//Optional<Usuario> objUsuario = this.repositorioUser.findById(username);
-		//if(objUsuario.isEmpty()) {
-		//	System.out.println("COLABORADOR JA CADASTRADO");
-		//}
-		
-		//this.cartaoService.deleteByUsuario(objUsuario.get());
-	//}
-	
-		//public void save(Carta carta) {
-		//Optional<Usuario> usuarioObj = this.repositorioUser.findById(usuario.getUsername());
-	//	if(usuarioObj.isPresent()) {
-	//		System.out.println("Colaborador ja cadastrado");
-			
-	//	}
-		
-		//this.repositorioUser.insert(usuario.getUsername(), usuario.getPassword());	 
-		
-	//	for(Carta carta : usuario.getCartas()) {
-		//	carta.setUsuario(usuario);
-		//	this.cartaoService.insert(carta);
-		//}
-	
-	
-	//}
 
 	
 

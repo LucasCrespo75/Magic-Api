@@ -34,14 +34,12 @@ import io.swagger.annotations.ApiOperation;
 public class MagicController {
 		
 	
-	//private UserRepositorio repositorioUsu;	
 	private UsuarioService service;
 	
 	private CartaoService serviceCartao;
 
 	
 	//private Usuario usuario;
-	//n esta inserindo o usuario
 	@ApiOperation(value="Cadastrando um usuario")
 	@PostMapping(value = "/usuario-carta", produces = MediaType.APPLICATION_JSON_VALUE)
 	public@ResponseBody ResponseEntity<UsuarioDto> salvar (@RequestBody UsuarioDto dto){

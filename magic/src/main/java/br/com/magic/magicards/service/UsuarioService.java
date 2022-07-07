@@ -12,7 +12,6 @@ import br.com.magic.magicards.repositorio.UserRepositorio;
 @Service
 public class UsuarioService {
 		
-	//private CartaRepositorio repositorioCarta;
 	
 	private UserRepositorio repositorioUser;
 	

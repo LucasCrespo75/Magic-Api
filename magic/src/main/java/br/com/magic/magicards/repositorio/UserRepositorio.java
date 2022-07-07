@@ -13,13 +13,6 @@ import br.com.magic.magicards.model.Usuario;
 @Repository
 public interface UserRepositorio extends JpaRepository<Usuario, String>  {
 	
-	//Usuario findByEmailePassword(String email, String password);
-	
-	//Usuario findByUsernameandPassword(String email, String password);
-	
-	
-	//(value= "SELECT * FROM USUARIO u WHERE u.username, u.password = :username, :password", nativeQuery = true)
-	//boolean findByUsernameAndPassword(String username, String password);
 
 	@Query(value= "SELECT * FROM USUARIO u WHERE u.username = :username", nativeQuery = true)
 	Optional<Usuario> findById(@Param("username")String username);
@@ -29,10 +22,5 @@ public interface UserRepositorio extends JpaRepository<Usuario, String>  {
 
 
 
-	//@Query(value= "SELECT * FROM USUARIO u WHERE u.username= :username", nativeQuery = true)
-	//Optional<Usuario> findByUsername(@Param ("username")String username);
-
-
-	
 
 }
