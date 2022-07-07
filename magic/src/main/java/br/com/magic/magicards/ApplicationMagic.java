@@ -9,7 +9,6 @@ public class ApplicationMagic {
 		public static void main(String[] args) {
 			SpringApplication.run(ApplicationMagic.class, args);
 		}
-
 }
 
 
