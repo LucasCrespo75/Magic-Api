@@ -11,12 +11,13 @@
 	<groupId>br.com</groupId>
 	<artifactId>magic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Magic</name>
+	<name>magic</name>
 	<description>Cartas magic aqui!!</description>
 	<properties>
 		<java.version>11</java.version>
+			<!--  <maven.compiler.release>11</maven.compiler.release>  -->
 	</properties>
-		<dependencies>
+	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -25,22 +26,20 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-			<!-- H2 database -->
+		
+		
+		<!-- H2 database -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>		
+			<optional>true</optional>			
+		</dependency>
 		<!-- Swagger 2 Doc Dependency -->
     	<dependency>
 		    <groupId>io.springfox</groupId>
@@ -53,22 +52,22 @@
 		    <artifactId>springfox-swagger-ui</artifactId>
 		    <version>2.9.2</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<!-- Apache Commons Lang -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		</dependency>			
+		<!--  JUnit Escopo de testes -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			</dependency>	
-			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-		<!-- Apache Commons Lang -->
-			<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-lang3</artifactId>
-		</dependency>
-			<!--  JUnit Escopo de testes -->
-        	<dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -80,15 +79,24 @@
 				<configuration>
 					<excludes>
 						<exclude>
-					<groupId>org.projectlombok</groupId>
-					<artifactId>lombok</artifactId>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
-		<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+			<!-- para o Heroku -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.1</version>		
+				<executions>
+					<execution>
+		                		<id>copy-dependencies</id>
+			                	<phase>package</phase>
+			                	<goals><goal>copy-dependencies</goal></goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
